@@ -1,0 +1,39 @@
+<div class="table-principal">
+    <h5>Consulta de Professores</h5>
+    <p>Listagem de Professores cadastrados</p>
+    
+    <table class="table table-houver table-sm">
+      <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nome do Professor</td>
+                <td>Endereco</td>
+               
+    
+            </tr>
+        </thead>
+      <tbody>
+            <tr *ngFor="let p of professor">
+                <td>{{p.idProfessor}}</td>
+                <td>{{p.nome}}</td>
+                <td>{{p.endereco}}</td>
+                
+    
+                <td>
+                  <button class="btn btn-sm btn-light editar "
+                  [routerLink]="['/editar-professor',p.idProfessor]">
+                    Editar
+                  </button>
+                    &nbsp;
+                    <button class="btn btn-sm btn-danger" (click)="excluir(p.idProfessor)">Excluir</button>
+                  </td>
+            </tr>
+        </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">Total de registros: {{professor.length}}</td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+    

@@ -1,0 +1,68 @@
+<div row mt-3>
+  <div col-md-4 offset-4>
+      <h5>Criacao de conta de usuario para professor</h5>
+      <p>Entre com suas credenciais para criar conta</p>
+      <hr>
+      <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+          <label>Entre com nome do professor:</label>
+          <br>
+          <input type="text" class="form-formControl" placeholder="Digite aqui" formControlName="nome">
+          <div class="text-danger" *ngIf="form.nome.touched && form.nome.invalid">
+              <span *ngIf="form.nome.errors.required">
+                  informe o nome do professor
+              </span>
+              <span *ngIf="form.nome.errors.minlength">
+                  informe no minimo 6 caracteres
+              </span>
+              <span *ngIf="form.nome.errors.maxlength">
+                  informe no minimo 50 caracteres
+              </span>
+          </div>
+
+          <br> <br>
+          <label>Entre com o usuario de acesso do professor:</label>
+          <br>
+          <input type="text" class="form-formControl" placeholder="Digite aqui" formControlName="login">
+          <div class="text-danger" *ngIf="form.login.touched && form.login.invalid">
+              <span *ngIf="form.login.errors.required">
+                  informe o usuario do professor
+              </span>
+              <span *ngIf="form.login.errors.minlength">
+                  informe no minimo 6 caracteres
+              </span>
+              <span *ngIf="form.login.errors.maxlength">
+                  informe no minimo 25 caracteres
+              </span>
+          </div>
+
+          <br> <br>
+          <label>Entre com a senha de acesso do professor:</label>
+          <br>
+          <input type="password" class="form-formControl" placeholder="Digite aqui" formControlName="senha">
+          <div class="text-danger" *ngIf="form.senha.touched && form.senha.invalid">
+              <span *ngIf="form.senha.errors.required">
+                  informe o senha do professor
+              </span>
+              <span *ngIf="form.senha.errors.minlength">
+                  informe no minimo 6 caracteres
+              </span>
+              <span *ngIf="form.senha.errors.maxlength">
+                  informe no minimo 20 caracteres
+              </span>
+          </div>
+          <br> <br>
+
+          <div class="d-grid mb-3">
+              <div *ngIf="messagem_success" class="mb-3 alert-success">
+                  <strong>{{messagem_error}}</strong>
+              </div>
+              <div *ngIf="messagem_success" class="mb-3 alert-danger">
+                  <strong>{{messagem_success}}</strong>
+              </div>
+          </div>
+          <div class="d-grid mb-3">
+              <input type="submit" value="Realizar Cadastro" class="btn btn-success" [disabled]="!formCadastro.valid">
+          </div>
+      </form>
+  </div>
+</div>

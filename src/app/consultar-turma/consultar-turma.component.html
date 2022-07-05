@@ -1,0 +1,40 @@
+<div class="table-principal">
+    <h5>Consulta de turmas</h5>
+    <p>Listagem de turmas cadastradas</p>
+    
+    <table class="table table-houver table-sm">
+      <thead>
+            <tr>
+                <td>ID</td>
+                <td>Ano</td>
+                <td>Semestre</td>
+               
+    
+            </tr>
+        </thead>
+      <tbody>
+            <tr *ngFor="let t of turma">
+                <td>{{t.idTurma}}</td>
+                <td>{{t.ano}}</td>
+                <td>{{t.semestre}}</td>
+                
+    
+                <td>
+                  <button class="btn btn-sm btn-light editar"
+                  [routerLink]="['/editar-turma',t.idTurma]">
+
+                    Editar
+                  </button>
+                    &nbsp;
+                    <button class="btn btn-sm btn-danger" (click)="excluir(t.idTurma)">Excluir</button>
+                  </td>
+            </tr>
+        </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">Total de registros: {{turma.length}}</td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+    

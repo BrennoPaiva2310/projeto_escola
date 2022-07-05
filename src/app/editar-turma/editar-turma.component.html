@@ -1,0 +1,41 @@
+<h5>Edição Turma</h5>
+<p>Utilize os campos para alterar os dados da Turma</p>
+
+<form [formGroup]="formEdicao" (ngSubmit)=" onSubmit()">
+
+  <div *ngIf="mensagem" class="mb-3 alert alert-primary">
+    <strong>{{mensagem}}</strong>
+  </div>
+
+  <!--campo oculto-->
+  <input type="hidden" formControlName="idTurma" />
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="">Ano da Turma</label>
+      <input type="text" class="form-control" formControlName="ano">
+      <div class="text-danger" *ngIf="form.ano.touched && form.ano.invalid">
+        <span *ngIf="form.ano.errors.required">
+          Informe o ano da turma
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="">Semestre</label>
+      <input type="text" class="form-control" formControlName="semestre">
+      <div class="text-danger" *ngIf="form.semestre.touched && form.semestre.invalid">
+        <span *ngIf="form.semestre.errors.required">
+          Informe o semestre da turma
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <input type="submit" [disabled]="!formEdicao.valid" class="btn btn-success" value="Salvar Alterações" />
+    </div>
+  </div>
+
+</form>

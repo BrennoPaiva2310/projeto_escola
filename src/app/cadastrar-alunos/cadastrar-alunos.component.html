@@ -1,0 +1,50 @@
+<div class="table-principal">
+<h5>Gerenciador de Alunos</h5>
+<p>Preencha os campos para inserir o aluno</p>
+
+<form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+
+<div *ngIf="mensagem" class="mb-3 alert alert-primary">
+
+  <strong>{{mensagem}}</strong>
+
+
+</div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="">Nome do Aluno</label>
+            <input type="text" class="form-control" formControlName="nome">
+            <div class="text-danger" *ngIf="form.nome.touched && form.nome.invalid">
+                <span *ngIf="form.nome.errors.required">
+                    Digite o nome do Aluno
+                </span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="">Endereco</label>
+            <input type="text" class="form-control" formControlName="endereco">
+            <div class="text-danger" *ngIf="form.endereco.touched && form.endereco.invalid">
+                <span *ngIf="form.endereco.errors.required">
+                    Digite o endereço do aluno
+                </span>
+            </div>
+        </div>
+
+       
+
+ 
+
+    </div>
+
+
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <input type="submit" [disabled]="!formCadastro.valid" class="btn btn-succes bg-warning" value="Realizar o Cadastro">
+        </div>
+    </div>
+
+</form>
+</div>
